@@ -1,0 +1,8 @@
+pyodbc
+numpy
+scipy
+scikit-learn
+pandas
+azure==4.0.0
+
+
