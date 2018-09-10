@@ -1,4 +1,3 @@
-pyodbc
 numpy
 scipy
 scikit-learn
