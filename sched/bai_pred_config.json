@@ -1,23 +1,32 @@
 {
-  "TENANT_ID": "72f988bf-86f1-41af-91ab-2d7cd011db47",
-  "CLIENT": "095d4aa7-a8d5-4f24-aa96-c631e3dee97c",
-  "KEY": "a9b478dc-dbdb-403f-bd6d-1dee6c0b1bd4",
-  "resource_group_name": "bleikbaimm",
-  "subscription_id": "edf507a2-6235-46c5-b560-fd463ba2e771",
-  "work_space": "baimmws",
-  "experiment_name": "baimm_predict",
-  "cluster_name": "baimmcluster",
-  "location": "eastus",
-  "acr_server": "baimmacr.azurecr.io",
-  "acr_image": "baimmacr.azurecr.io/baimmimg:v1",
-  "acr_user": "baimmacr",
-  "acr_password": "PzNeGyPeweWqu9f9haGoCHV3VED=Nq5g",
-  "command_line": "python predict.py {0} {1} {2} {3} {4}",
-  "std_out_err_path_prefix": "/mnt/batch/tasks/shared/LS_root/mounts/baimmblobmount",
-  "config_file_path": "predict_config.json",
-  "node_count": 2,
-  "device_ids": [ 1, 2, 3 ],
-  "tags": [ 1, 2, 3, 4, 5 ],
-  "job_name": "baimm_predict{0}_{1}"
+    "sp_tenant": "72f988bf-86f1-41af-91ab-2d7cd011db47",
+    "sp_client": "095d4aa7-a8d5-4f24-aa96-c631e3dee97c",
+    "sp_secret": "a9b478dc-dbdb-403f-bd6d-1dee6c0b1bd4",
+    "resource_group_name": "baimm",
+    "subscription_id": "edf507a2-6235-46c5-b560-fd463ba2e771",
+    "work_space": "baimmws",
+    "experiment_name": "baimm_score",
+    "cluster_name": "baimmcluster",
+    "location": "eastus",
+    "acr_server": "baimmacr.azurecr.io",
+    "acr_image": "baimmacr.azurecr.io/baimmimg:v1",
+    "acr_user": "baimmacr",
+    "acr_password": "g/UFxlMLtFEpJgIENgWZ2r1N9potj201",
+    "command_line": "python predict.py {0} {1} {2}",
+    "std_out_err_path_prefix": "/mnt/batch/tasks/shared/LS_root/mounts/bfs",
+    "config_file_path": "predict_config.json",
+    "node_count": 2,
+    "device_ids": [
+        1,
+        2,
+        3
+    ],
+    "tags": [
+        1,
+        2,
+        3,
+        4,
+        5
+    ],
+    "job_name": "baimm_predict{0}_{1}"
 }
-

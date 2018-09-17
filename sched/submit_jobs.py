@@ -8,8 +8,7 @@ import sys
 import datetime
 import time
 
-#config_file = 'C:\\Users\\bleik\\OneDrive - Microsoft\\projects\\batchai_manymodels\\batchai\\v2\\bai_pred_config.json'
-config_file = sys.argv[3]
+config_file = sys.argv[1]
 with open(config_file) as f:
     j = json.loads(f.read())
 
@@ -39,8 +38,6 @@ acr_password = j['acr_password']
 experiment_name = j['experiment_name'] + '_' + datetime.datetime.now().strftime('%y%m%d%H%M%S')
 
 # job parameters
-ts_from = sys.argv[1]
-ts_to = sys.argv[2]
 device_ids = j['device_ids']
 tags = j['tags']
 job_name_template = j['job_name']
@@ -59,7 +56,7 @@ experiment = batchai_client.experiments.create(resource_group_name, work_space, 
 for device_id in device_ids:
     for tag in tags:
         job_name = job_name_template.format(device_id, tag)
-        custom_settings = baimodels.CustomToolkitSettings(command_line=command_line.format(device_id, tag, ts_from, ts_to, config_file_path))
+        custom_settings = baimodels.CustomToolkitSettings(command_line=command_line.format(device_id, tag, config_file_path))
         img_src_reg = baimodels.ImageSourceRegistry(
             server_url=acr_server,
             image=acr_image,
@@ -74,12 +71,5 @@ for device_id in device_ids:
                                                container_settings=container_settings)
 
         batchai_client.jobs.create(resource_group_name, work_space, experiment.name, job_name, params)
-
- 
-  
-# delete jobs by exp
-#for j in batchai_client.jobs.list_by_experiment(resource_group_name, work_space, experiment_name):
-#    batchai_client.jobs.delete(resource_group_name, work_space, experiment_name, j.name)
-
 
      
