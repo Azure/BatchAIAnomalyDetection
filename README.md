@@ -22,7 +22,7 @@ Once all prerequisites are installed, clone or download this repo and start crea
 ## Creating Azure Resources
 The following notebook contains all Azure CLI and Docker commands needed to create resources in your Azure subscription, as well as configurations of Batch AI and the Python scoring script.  
 
-[create_resources.ipynb](./create_resources)
+[create_resources.ipynb](create_resources.ipynb)
 
 ## Starting the Pipeline
 
