@@ -3,12 +3,17 @@ In this repository you will find a set of scripts and commands that help you bui
 
 The solution can be used as a template and can generalize to different problems. The problem addressed here is monitoring the operation of a large number of devices in an IoT setting, where each device sends sensor readings continuously. We assume there are pre-trained [anomaly detection models](http://scikit-learn.org/stable/modules/outlier_detection.html#outlier-detection) (one for each device) that need to be used to predict whether a series of measurements, that are aggregated over a predefined time interval, correspond to an anomaly or not.
 
+## Architecture
+![System Architecture](./architecture.PNG)
+
 ## Prerequisites
 - Python 3.6
 - [Jupyter Notebook](http://jupyter.org/index.html) - *pip install jupyter*
 - [azure package 4.0.0](https://pypi.org/project/azure/) - *pip install azure==4.0.0*
 - [Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest)
 - [Docker](https://www.docker.com/)
+- [JQ](https://stedolan.github.io/jq/) - *sudo apt-get install jq*
+
 
 > *All scripts and commands were tested on an Ubuntu 16.04 LTS system.*
 
