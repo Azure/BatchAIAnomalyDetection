@@ -10,4 +10,4 @@ RUN python3 -m pip install -r requirements.txt
 COPY sched/submit_jobs.py /
 COPY sched/bai_pred_config.json /
 
-CMD /python submit_jobs.py bai_pred_config.json
+CMD python submit_jobs.py bai_pred_config.json

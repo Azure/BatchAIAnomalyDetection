@@ -1,8 +1,0 @@
-{
-    "blob_account": "baimmstorage",
-    "blob_key": "ZkNbJHqYdBRikE2omtmHGpykVdyelOzocIPxjcTw25OgGX+WXp5FEurf/Xj+r7/mYOe7iZgakxyNR8ez1Jf4rQ==",
-    "models_blob_container": "models",
-    "data_blob_container": "data",
-    "data_blob": "sensor_data.csv",
-    "predictions_blob_container": "preds"
-}

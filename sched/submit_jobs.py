@@ -13,9 +13,9 @@ with open(config_file) as f:
     j = json.loads(f.read())
 
 # Azure service principle login credentials
-sp_tenant_id = j['TENANT_ID']
-sp_client = j['CLIENT']
-sp_key = j['KEY']
+sp_tenant_id = j['sp_tenant']
+sp_client = j['sp_client']
+sp_secret = j['sp_secret']
 
 # Batch AI cluster info
 resource_group_name = j['resource_group_name']
@@ -44,7 +44,7 @@ job_name_template = j['job_name']
 
 credentials = ServicePrincipalCredentials(
     client_id=sp_client,
-    secret=sp_key,
+    secret=sp_secret,
     tenant=sp_tenant_id
 )
 
