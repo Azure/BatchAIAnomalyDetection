@@ -3,6 +3,14 @@ In this repository you will find a set of scripts and commands that help you bui
 
 The solution can be used as a template and can generalize to different problems. The problem addressed here is monitoring the operation of a large number of devices in an IoT setting, where each device sends sensor readings continuously. We assume there are pre-trained [anomaly detection models](http://scikit-learn.org/stable/modules/outlier_detection.html#outlier-detection) (one for each device) that need to be used to predict whether a series of measurements, that are aggregated over a predefined time interval, correspond to an anomaly or not.
 
+To get started, read through the *Architecture* section, then go through the following sections:
+    
+* Install Prerequisites
+* Create Environment
+* Create Azure Resources
+* Validate Deployments and Jobs Execution
+* Cleanup
+
 ## Architecture
 ![System Architecture](./architecture.PNG)
 
@@ -21,12 +29,10 @@ Logic Apps provide an easy way to create the runtime workflow and scheduling for
 The Docker images used in both Batch AI and Logic Apps are created in the [*create_resources.ipynb*](create_resources.ipynb) notebook and pushed to an Azure Container Registry (ACR). ACR provides a convenient way to host images and instantiate containers through other Azure services.
 
 
-> For more information on these services, check the documentation links provided below in the *Links* section. 
+> For more information on these services, check the documentation links provided in the *Links* section. 
 
-## Prerequisites
-- Python >=3.5
-- [Jupyter Notebook](http://jupyter.org/index.html) - *pip install jupyter*
-- [azure package 4.0.0](https://pypi.org/project/azure/) - *pip install azure==4.0.0*
+## Install Prerequisites
+- [conda 4.5](https://conda.io/docs/user-guide/install/index.html)
 - [Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest)
 - [Docker](https://www.docker.com/)
 - [jq](https://stedolan.github.io/jq/) - *sudo apt-get install jq*
@@ -34,14 +40,37 @@ The Docker images used in both Batch AI and Logic Apps are created in the [*crea
 
 > *All scripts and commands were tested on an Ubuntu 16.04 LTS system.*
 
-Once all prerequisites are installed, clone or download this repo and start creating the required resources.
+## Create Environment
+Once all prerequisites are installed,
+1. Clone or download this repsitory.
 
-## Creating Azure Resources
-The following notebook contains all Azure CLI and Docker commands needed to create resources in your Azure subscription, as well as configurations of Batch AI and scoring Python scripts. 
+    ```
+    git clone https://github.com/Azure/BatchAIAnomalyDetection.git
+    ```
 
-[create_resources.ipynb](create_resources.ipynb)
+2. Create and select conda environment from yml file 
+        
+    ``` 
+    conda env create -f environment.yml
+    source activate baimm    
+    ```
+3. Start Jupyter in the same environment
+    
+    ```
+    jupyter notebook
+    ```
 
-## Validating Deployments and Jobs Execution 
+
+Start creating the required resources in the next section.
+
+## Create Azure Resources
+The [create_resources.ipynb](create_resources.ipynb) notebook contains all Azure CLI and Docker commands needed to create resources in your Azure subscription, as well as configurations of Batch AI and scoring Python scripts. 
+
+Open Jupyter Notebook in your browser, navigate to the cloned/downloaded directory: *BatchAIAnomalyDetection/create_resources.ipynb*, and start executing the cells to create the needed Azure resources.
+
+
+
+## Validate Deployments and Jobs Execution 
 After all resources are created, you can check your resource group in the portal and validate that all components have been deployed successfully. 
 
 > In addition, you would need to navigate to the ACI API connection in the portal and authenticate by either using your service principle info or sign in using your email and password/pin.
@@ -55,7 +84,7 @@ Under *Storage Account > Blobs*, you should see the predictions CSV files in the
 If you wish to delete all created resources, run the following CLI command to delete the resource group and all underlying resources.
 
 ```sh
-az group delete --name <resource group name>
+az group delete --name <resource_group_name>
 ```
 
 ## Links
