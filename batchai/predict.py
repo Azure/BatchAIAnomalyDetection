@@ -11,8 +11,8 @@ import pandas as pd
 import io
 
 # query params
-device = sys.argv[1]
-tag = sys.argv[2]
+device = int(sys.argv[1])
+tag = int(sys.argv[2])
 
 # input/output params
 config_file = sys.argv[3]

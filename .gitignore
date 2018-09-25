@@ -27,3 +27,5 @@
 /.ipynb_checkpoints
 /.vs
 /.vscode
+/batchai/predict_config.json
+/sched/bai_pred_config.json

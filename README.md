@@ -42,19 +42,19 @@ The Docker images used in both Batch AI and Logic Apps are created in the [*crea
 
 ## Create Environment
 Once all prerequisites are installed,
-1. Clone or download this repsitory.
+1. Clone or download this repsitory:
 
     ```
     git clone https://github.com/Azure/BatchAIAnomalyDetection.git
     ```
 
-2. Create and select conda environment from yml file 
+2. Create and select conda environment from yml file:
         
     ``` 
     conda env create -f environment.yml
     source activate baimm    
     ```
-3. Start Jupyter in the same environment
+3. Start Jupyter in the same environment:
     
     ```
     jupyter notebook
