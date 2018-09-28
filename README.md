@@ -73,9 +73,9 @@ Open Jupyter Notebook in your browser, navigate to the cloned/downloaded directo
 ## Validate Deployments and Jobs Execution 
 After all resources are created, you can check your resource group in the portal and validate that all components have been deployed successfully. 
 
-> In addition, you would need to navigate to the ACI API connection in the portal and authenticate by either using your service principle info or sign in using your email and password/pin.
+For the Logic App to start running, you would need to authenticate the ACI API connection. Navigate to your resource group, click on the ACI API connection in the portal and authenticate by either using your service principle info or sign in using your email and password/pin.
 
-Under *Batch AI Cluster > Jobs*, you should see the experiment and scoring jobs, as soon as the Logic App is triggered.
+Under *Batch AI Workspace > Cluster > Jobs*, you should see the experiment and scoring jobs, as soon as the Logic App is triggered.
 
 Under *Storage Account > Blobs*, you should see the predictions CSV files in the *predictions* container, after the Batch AI jobs finish successfully.
 
