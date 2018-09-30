@@ -95,7 +95,7 @@
                                             }
                                         ],
                                         "osType": "Linux",
-                                        "restartPolicy": "Never"
+                                        "restartPolicy": "OnFailure"
                                     }
                                 },
                                 "host": {
