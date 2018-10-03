@@ -3,7 +3,9 @@ channels:
   - conda-forge
 dependencies:
   - python=3.6
-  - ipykernel
+  - nb_conda==2.2.1
+  - ipykernel  
   - pip:
     - azure==4.0.0
+    - azure-cli==2.0.45
 

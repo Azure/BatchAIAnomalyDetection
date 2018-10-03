@@ -33,7 +33,6 @@ The Docker images used in both Batch AI and Logic Apps are created in the [*crea
 
 ## Install Prerequisites
 - [conda 4.5](https://conda.io/docs/user-guide/install/index.html)
-- [Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest)
 - [Docker](https://www.docker.com/)
 - [jq](https://stedolan.github.io/jq/) - *sudo apt-get install jq*
 
