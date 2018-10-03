@@ -58,14 +58,18 @@ Once all prerequisites are installed,
     ```
     jupyter notebook
     ```
+4. Open Jupyter Notebook in your browser and select the environemnt kernel in the menu: 
 
+    ```
+    Kernel > Change Kernel > Python [conda env:baimm]
+    ```
 
 Start creating the required resources in the next section.
 
 ## Create Azure Resources
 The [create_resources.ipynb](create_resources.ipynb) notebook contains all Azure CLI and Docker commands needed to create resources in your Azure subscription, as well as configurations of Batch AI and scoring Python scripts. 
 
-Open Jupyter Notebook in your browser, navigate to the cloned/downloaded directory: *BatchAIAnomalyDetection/create_resources.ipynb*, and start executing the cells to create the needed Azure resources.
+Navigate to the cloned/downloaded directory in Jupyter Notebook: *BatchAIAnomalyDetection/create_resources.ipynb*, and start executing the cells to create the needed Azure resources.
 
 
 
