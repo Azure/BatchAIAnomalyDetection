@@ -1,4 +1,9 @@
-# Scoring Anomaly Detection Models at Scale using Batch AI
+### Author: Said Bleik
+
+# Deploying a Batch Scoring Pipeline for Python Models
+
+## Overview
+#### Scoring Anomaly Detection Models at Scale using Batch AI
 In this repository you will find a set of scripts and commands that help you build a scalable solution for scoring many models in parallel using Batch AI.
 
 The solution can be used as a template and can generalize to different problems. The problem addressed here is monitoring the operation of a large number of devices in an IoT setting, where each device sends sensor readings continuously. We assume there are pre-trained [anomaly detection models](http://scikit-learn.org/stable/modules/outlier_detection.html#outlier-detection) (one for each device) that need to be used to predict whether a series of measurements, that are aggregated over a predefined time interval, correspond to an anomaly or not.
@@ -11,7 +16,7 @@ To get started, read through the *Architecture* section, then go through the fol
 * Validate Deployments and Jobs Execution
 * Cleanup
 
-## Architecture
+## Design
 ![System Architecture](./architecture.PNG)
 
 This solution consists of several Azure cloud services that allow upscaling and downscaling resources according to need. The services and their role in this solution are described below.
@@ -31,7 +36,7 @@ The Docker images used in both Batch AI and Logic Apps are created in the [*crea
 
 > For more information on these services, check the documentation links provided in the *Links* section. 
 
-## Install Prerequisites
+## Prerequisites
 - [conda 4.5](https://conda.io/docs/user-guide/install/index.html)
 - [Docker](https://www.docker.com/)
 - [jq](https://stedolan.github.io/jq/) - *sudo apt-get install jq*
@@ -39,7 +44,7 @@ The Docker images used in both Batch AI and Logic Apps are created in the [*crea
 
 > *All scripts and commands were tested on an Ubuntu 16.04 LTS system.*
 
-## Create Environment
+## Setup
 Once all prerequisites are installed,
 1. Clone or download this repsitory:
 
@@ -66,14 +71,15 @@ Once all prerequisites are installed,
 
 Start creating the required resources in the next section.
 
-## Create Azure Resources
+## Steps
+### 1. Create Azure Resources
 The [create_resources.ipynb](create_resources.ipynb) notebook contains all Azure CLI and Docker commands needed to create resources in your Azure subscription, as well as configurations of Batch AI and scoring Python scripts. 
 
 Navigate to the cloned/downloaded directory in Jupyter Notebook: *BatchAIAnomalyDetection/create_resources.ipynb*, and start executing the cells to create the needed Azure resources.
 
 
 
-## Validate Deployments and Jobs Execution 
+### 2. Validate Deployments and Jobs Execution 
 After all resources are created, you can check your resource group in the portal and validate that all components have been deployed successfully. 
 
 For the Logic App to start running, you would need to authenticate the ACI API connection. Navigate to your resource group, click on the ACI API connection in the portal and authenticate.
@@ -83,7 +89,7 @@ Under *Batch AI Workspace > Cluster > Jobs*, you should see the experiment and s
 Under *Storage Account > Blobs*, you should see the predictions CSV files in the *predictions* container, after the Batch AI jobs finish successfully.
 
 
-## Cleanup
+## Cleaning up
 If you wish to delete all created resources, run the following CLI command to delete the resource group and all underlying resources.
 
 ```sh
