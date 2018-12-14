@@ -20,6 +20,9 @@
         "container_group": {
             "type": "string"
         },
+        "command": {
+            "type": "array"
+        },
         "image_name": {
             "type": "string"
         },
@@ -67,8 +70,6 @@
                     },
                     "actions": {
                         "Create_container_group": {
-                            "runAfter": {},
-                            "type": "ApiConnection",
                             "inputs": {
                                 "body": {
                                     "location": "[parameters('location')]",
@@ -77,6 +78,9 @@
                                             {
                                                 "name": "[parameters('container_name')]",
                                                 "properties": {
+                                                    "command": 
+                                                        "[parameters('command')]"
+                                                    ,
                                                     "image": "[parameters('image_name')]",
                                                     "resources": {
                                                         "requests": {
@@ -95,7 +99,7 @@
                                             }
                                         ],
                                         "osType": "Linux",
-                                        "restartPolicy": "OnFailure"
+                                        "restartPolicy": "Never"
                                     }
                                 },
                                 "host": {
@@ -108,7 +112,29 @@
                                 "queries": {
                                     "x-ms-api-version": "2017-10-01-preview"
                                 }
-                            }
+                            },
+                            "runAfter": {
+                                "Delete_container_group": [
+                                    "Succeeded"
+                                ]
+                            },
+                            "type": "ApiConnection"
+                        },
+                        "Delete_container_group": {
+                            "inputs": {
+                                "host": {
+                                    "connection": {
+                                        "name": "@parameters('$connections')['aci']['connectionId']"
+                                    }
+                                },
+                                "method": "delete",
+                                "path": "[concat('/subscriptions/', parameters('subscription_id'), '/resourceGroups/', parameters('resource_group'), '/providers/Microsoft.ContainerInstance/containerGroups/', parameters('container_group'))]",
+                                "queries": {
+                                    "x-ms-api-version": "2017-10-01-preview"
+                                }
+                            },
+                            "runAfter": {},
+                            "type": "ApiConnection"
                         }
                     },
                     "outputs": {}
@@ -125,9 +151,7 @@
                     }
                 }
             },
-            "dependsOn": [
-                
-            ]
+            "dependsOn": []
         }
     ]
 }
