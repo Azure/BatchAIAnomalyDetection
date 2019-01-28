@@ -1,5 +1,7 @@
 ### Author: Said Bleik
 
+> This architecture uses Batch AI. The Azure Batch AI service is retiring March 2019, and its at-scale training and scoring capabilities are now available in Azure Machine Learning Service. The reference architecture will be updated soon to use Machine Learning, which offers a managed compute target called Azure Machine Learning Compute for training, deploying, and scoring machine learning models. The repo for the version using Azure Machine Learning can be accessed [here](https://github.com/Microsoft/AMLBatchScoringPipeline).
+
 # Deploying a Batch Scoring Pipeline for Python Models
 
 ## Overview
